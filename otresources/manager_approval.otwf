@@ -228,6 +228,9 @@
         "outgoing": [
           {
             "resourceId": "sid-682FF2F0-8800-4302-BF62-913589FD985C"
+          },
+          {
+            "resourceId": "sid-918EAFC9-E507-48FF-A166-6CEAB425B2AD"
           }
         ],
         "bounds": {
@@ -423,6 +426,88 @@
         "dockers": []
       },
       {
+        "resourceId": "sid-918EAFC9-E507-48FF-A166-6CEAB425B2AD",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "timercycledefinition": "",
+          "timerdatedefinition": "",
+          "timerdurationdefinition": "PT5M",
+          "timerenddatedefinition": "",
+          "cancelactivity": true,
+          "executiongroupheader": "",
+          "executionlisteners": {
+            "executionListeners": [
+              {
+                "event": "start",
+                "implementation": "${execution.setVariable(\"approvalStatus\" , \"expired\")}",
+                "className": "",
+                "expression": "${execution.setVariable(\"approvalStatus\" , \"expired\")}",
+                "delegateExpression": "",
+                "isMailNotification": false,
+                "isExecuteScriptEnabled": false,
+                "scriptInfo": {
+                  "scriptType": "javascript",
+                  "script": ""
+                },
+                "mailInfo": {
+                  "mailtaskheaders": "",
+                  "mailtaskto": "",
+                  "mailtaskfrom": "",
+                  "mailtaskcc": "",
+                  "mailtaskbcc": "",
+                  "mailtasksubject": "",
+                  "mailtasktext": "",
+                  "mailtasktextvar": "",
+                  "mailtaskhtml": "",
+                  "mailtaskhtmlvar": "",
+                  "mailtaskcharset": ""
+                },
+                "publishToEventService": false,
+                "additionalTracing": false,
+                "eventTypeId": "",
+                "eventInfo": {
+                  "eventData": ""
+                },
+                "tracingInfo": {
+                  "tracingData": ""
+                },
+                "fields": [],
+                "$$hashKey": "uiGrid-0033"
+              }
+            ]
+          }
+        },
+        "stencil": {
+          "id": "BoundaryTimerEvent"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-6C003916-36CD-4F10-A984-35D81B85B707"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 652.9340405867524,
+            "y": 234.07027411803355
+          },
+          "upperLeft": {
+            "x": 621.9340405867524,
+            "y": 203.07027411803355
+          }
+        },
+        "dockers": [
+          {
+            "x": 63.56250804662693,
+            "y": 51.59999495744697
+          }
+        ]
+      },
+      {
         "resourceId": "sid-F63F3BE7-3A2D-416E-8746-B1904B92FBC0",
         "properties": {
           "generalgroupheader": "",
@@ -468,6 +553,113 @@
         "target": {
           "resourceId": "sid-3B55CE83-5613-4BE6-AE53-86C524A00A18"
         }
+      },
+      {
+        "resourceId": "sid-6C003916-36CD-4F10-A984-35D81B85B707",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-3B55CE83-5613-4BE6-AE53-86C524A00A18"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 822.6466340811038,
+            "y": 291.6000061482191
+          },
+          "upperLeft": {
+            "x": 637.9340405867524,
+            "y": 187.05476783599042
+          }
+        },
+        "dockers": [
+          {
+            "x": 16,
+            "y": 16
+          },
+          {
+            "x": 637.9340405867524,
+            "y": 291.6000061482191
+          },
+          {
+            "x": 691.5625020712614,
+            "y": 291.6000061482191
+          },
+          {
+            "x": 14,
+            "y": 14
+          }
+        ],
+        "target": {
+          "resourceId": "sid-3B55CE83-5613-4BE6-AE53-86C524A00A18"
+        }
+      },
+      {
+        "resourceId": "sid-D198C525-3F00-4175-89C2-0A85A2C7C039",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "text": "Input parameters: base_url contract_id contract approval_task_name approval_trait_name approver_group"
+        },
+        "stencil": {
+          "id": "TextAnnotation"
+        },
+        "childShapes": [],
+        "outgoing": [],
+        "bounds": {
+          "lowerRight": {
+            "x": 416.9999952614308,
+            "y": 335.5999863177542
+          },
+          "upperLeft": {
+            "x": 284.9999957531691,
+            "y": 252.59998682439368
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-C85197B6-A527-4DC3-A1E1-C7A529CDD689",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "text": "Output parameters:\napprovalStatus\n"
+        },
+        "stencil": {
+          "id": "TextAnnotation"
+        },
+        "childShapes": [],
+        "outgoing": [],
+        "bounds": {
+          "lowerRight": {
+            "x": 911.1624870723115,
+            "y": 310.59999421834954
+          },
+          "upperLeft": {
+            "x": 794.1624872958289,
+            "y": 247.59999441206463
+          }
+        },
+        "dockers": []
       }
     ],
     "stencil": {
