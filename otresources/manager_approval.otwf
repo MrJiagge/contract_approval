@@ -58,12 +58,12 @@
         ],
         "bounds": {
           "lowerRight": {
-            "x": 360,
-            "y": 193
+            "x": 359.99999508261686,
+            "y": 189.99999560415753
           },
           "upperLeft": {
-            "x": 330,
-            "y": 163
+            "x": 329.99999508261686,
+            "y": 159.99999560415753
           }
         },
         "dockers": []
@@ -73,7 +73,7 @@
         "properties": {
           "generalgroupheader": "",
           "overrideid": "",
-          "name": "Update Manager Approval Trait",
+          "name": "Update Manager Approval trait",
           "detailsgroupheader": "",
           "authenticationdetails": {
             "useCurrentAuthToken": true
@@ -93,7 +93,7 @@
           "httptasksaveresponseparameters": "",
           "httptaskresultvariableprefix": "",
           "httptasksaveresponseparameterstransient": "",
-          "httptasksaveresponseasjson": "true",
+          "httptasksaveresponseasjson": true,
           "executiongroupheader": "",
           "asynchronousdefinition": "false",
           "isforcompensation": "false",
@@ -111,15 +111,19 @@
           "id": "HttpTask"
         },
         "childShapes": [],
-        "outgoing": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-E198EB95-9971-409F-80D5-4DB91F80EF25"
+          }
+        ],
         "bounds": {
           "lowerRight": {
             "x": 504.99999396502983,
-            "y": 217.99999794363978
+            "y": 214.99999798834327
           },
           "upperLeft": {
             "x": 404.99999396502983,
-            "y": 137.99999794363978
+            "y": 134.99999798834327
           }
         },
         "dockers": []
@@ -149,12 +153,12 @@
         ],
         "bounds": {
           "lowerRight": {
-            "x": 404.15624669962574,
-            "y": 177.99999970819547
+            "x": 404.1562444714365,
+            "y": 174.99999688633469
           },
           "upperLeft": {
-            "x": 360.6093741984805,
-            "y": 177.99999889412217
+            "x": 360.6093699341874,
+            "y": 174.9999959424816
           }
         },
         "dockers": [
@@ -178,7 +182,23 @@
           "overrideid": "",
           "name": "${approval_task_name}",
           "detailsgroupheader": "",
-          "usertaskassignment": "",
+          "usertaskassignment": {
+            "assignment": {
+              "assignee": "",
+              "candidateUsers": [
+                {
+                  "value": ""
+                }
+              ],
+              "candidateGroups": [
+                {
+                  "value": "${approver_group}"
+                }
+              ],
+              "type": "static",
+              "initiatorCanCompleteTask": false
+            }
+          },
           "usertasknature": "",
           "duedatedefinition": "",
           "prioritydefinition": "",
@@ -190,10 +210,118 @@
           "tasklisteners": "",
           "executionlisteners": "",
           "completioncondition": "",
-          "tasktype": "default",
-          "outcomevariable": "",
-          "possibleoutcomes": "",
+          "tasktype": "approval",
+          "outcomevariable": "approvalStatus",
+          "possibleoutcomes": "Approve:approved,Reject:rejected",
           "categorydefinition": "077d340a-f0f9-4496-a3dd-677ff967693b",
+          "multiinstance_type": "",
+          "multiinstance_cardinality": "",
+          "multiinstance_collection": "",
+          "multiinstance_variable": "",
+          "multiinstance_condition": "",
+          "multiinstance_collection_class": ""
+        },
+        "stencil": {
+          "id": "UserTask"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-682FF2F0-8800-4302-BF62-913589FD985C"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 639.9999919533731,
+            "y": 217.9999958872796
+          },
+          "upperLeft": {
+            "x": 539.9999919533731,
+            "y": 137.9999958872796
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-E198EB95-9971-409F-80D5-4DB91F80EF25",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-14A3ED87-C24B-4BA2-912B-D3F3F01B2D68"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 539.4299270138584,
+            "y": 176.8762174366998
+          },
+          "upperLeft": {
+            "x": 505.57005890454445,
+            "y": 176.12377643892307
+          }
+        },
+        "dockers": [
+          {
+            "x": 50,
+            "y": 40
+          },
+          {
+            "x": 50,
+            "y": 40
+          }
+        ],
+        "target": {
+          "resourceId": "sid-14A3ED87-C24B-4BA2-912B-D3F3F01B2D68"
+        }
+      },
+      {
+        "resourceId": "sid-66848A72-44B3-4518-BC97-76F8E2BB4819",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "Update Manager Approval trait",
+          "detailsgroupheader": "",
+          "authenticationdetails": {
+            "useCurrentAuthToken": true
+          },
+          "httptaskrequestmethod": "PATCH",
+          "httptaskrequesturl": "${base_url}/cms/instances/file/ca_contract/${contract_id}",
+          "httptaskrequestheaders": "Content-Type: application/json",
+          "httptaskrequestbody": "{\n \"traits\": {\n \"ca_approval\": {\n \"${approval_trait_name}\": {\n \"is_required\": true,\n \"has_been_granted\": ${approvalStatus == \n\"approved\"},\n \"approver\": \"${approver}\",\n \"approver_role\": \"Line Manager\",\n \"approval_date\": \"${contract.update_time}\"\n }\n }\n }\n}",
+          "httptaskrequestbodyencoding": "",
+          "httptaskrequesttimeout": "",
+          "httptaskdisallowredirects": "",
+          "httptaskfailstatuscodes": "",
+          "httptaskhandlestatuscodes": "",
+          "httptaskignoreexception": "",
+          "httptaskresponsevariablename": "contract",
+          "httptasksaverequestvariables": "",
+          "httptasksaveresponseparameters": "",
+          "httptaskresultvariableprefix": "",
+          "httptasksaveresponseparameterstransient": "",
+          "httptasksaveresponseasjson": true,
+          "executiongroupheader": "",
+          "asynchronousdefinition": "false",
+          "isforcompensation": "false",
+          "exclusivedefinition": "false",
+          "skipexpression": "",
+          "executionlisteners": "",
+          "multiinstancegroupheader": "",
           "multiinstance_type": "None",
           "multiinstance_cardinality": "",
           "multiinstance_collection": "",
@@ -201,21 +329,145 @@
           "multiinstance_condition": ""
         },
         "stencil": {
-          "id": "UserTask"
+          "id": "HttpTask"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-F63F3BE7-3A2D-416E-8746-B1904B92FBC0"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 774.9999698251495,
+            "y": 217.99999383091944
+          },
+          "upperLeft": {
+            "x": 674.9999698251495,
+            "y": 137.99999383091944
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-682FF2F0-8800-4302-BF62-913589FD985C",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-66848A72-44B3-4518-BC97-76F8E2BB4819"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 674.4296654503567,
+            "y": 177.99999511697754
+          },
+          "upperLeft": {
+            "x": 640.5702963281658,
+            "y": 177.99999460122146
+          }
+        },
+        "dockers": [
+          {
+            "x": 50,
+            "y": 40
+          },
+          {
+            "x": 50,
+            "y": 40
+          }
+        ],
+        "target": {
+          "resourceId": "sid-66848A72-44B3-4518-BC97-76F8E2BB4819"
+        }
+      },
+      {
+        "resourceId": "sid-3B55CE83-5613-4BE6-AE53-86C524A00A18",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "End",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "EndNoneEvent"
         },
         "childShapes": [],
         "outgoing": [],
         "bounds": {
           "lowerRight": {
-            "x": 654.9999834597114,
-            "y": 217.9999958872796
+            "x": 847.9999698251495,
+            "y": 191.99999383091944
           },
           "upperLeft": {
-            "x": 554.9999834597114,
-            "y": 137.9999958872796
+            "x": 819.9999698251495,
+            "y": 163.99999383091944
           }
         },
         "dockers": []
+      },
+      {
+        "resourceId": "sid-F63F3BE7-3A2D-416E-8746-B1904B92FBC0",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-3B55CE83-5613-4BE6-AE53-86C524A00A18"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 819.3749698251495,
+            "y": 177.99999383091944
+          },
+          "upperLeft": {
+            "x": 775.3905948251495,
+            "y": 177.99999383091944
+          }
+        },
+        "dockers": [
+          {
+            "x": 50,
+            "y": 40
+          },
+          {
+            "x": 14,
+            "y": 14
+          }
+        ],
+        "target": {
+          "resourceId": "sid-3B55CE83-5613-4BE6-AE53-86C524A00A18"
+        }
       }
     ],
     "stencil": {
