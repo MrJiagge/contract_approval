@@ -1,0 +1,32 @@
+{
+  "id": "decc8634-a168-42fc-861d-8cd2c30df6e6",
+  "schemaId": "https://www.opentext.com/ocp/devx/metadata/1.0.2/Type",
+  "data": {
+    "category": "file",
+    "name": "customer",
+    "display_name": "Customer",
+    "namespace": "077d340a-f0f9-4496-a3dd-677ff967693b",
+    "attributes": [
+      {
+        "data_type": "string",
+        "display_name": "Customer email",
+        "name": "customer_email",
+        "size": 256,
+        "searchable": true,
+        "sortable": true,
+        "required": true,
+        "validators": [],
+        "ot2mc-row-id": "a4805f7f-6c23-4fb1-ae84-89ebb8e34987"
+      }
+    ],
+    "description": "Customer Type",
+    "operations": [],
+    "indexes": [],
+    "methods": [],
+    "scripts": [],
+    "required_traits": [],
+    "non_auditable_actions": [],
+    "actions": []
+  },
+  "serviceName": "metadata"
+}

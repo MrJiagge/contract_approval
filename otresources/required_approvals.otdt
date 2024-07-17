@@ -1,0 +1,123 @@
+{
+  "id": "bc1124bc-252d-4c32-be41-ae95e12ac435",
+  "schemaId": "https://www.opentext.com/ocp/devx/decision/1.0.0/DecisionTable",
+  "data": {
+    "id": "c7678c25-bcde-403d-ad21-8add8b8e442a",
+    "version": 1,
+    "name": "Required Approvals",
+    "key": "required_approvals",
+    "description": "Decision table to determine the required approval steps for the contract",
+    "namespace": "077d340a-f0f9-4496-a3dd-677ff967693b",
+    "hitIndicator": "RULE ORDER",
+    "inputExpressions": [
+      {
+        "id": "1",
+        "type": "string",
+        "variableId": "contract_type",
+        "entries": [
+          "ca_contract",
+          "ca_loan_contract"
+        ],
+        "label": "Contract Type"
+      },
+      {
+        "id": "input_1721205804921",
+        "type": "number",
+        "variableId": "contract_value",
+        "label": "Contract Value"
+      },
+      {
+        "id": "input_1721205866854",
+        "type": "number",
+        "variableId": "risk_level",
+        "entries": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "label": "Risk Level"
+      }
+    ],
+    "outputExpressions": [
+      {
+        "id": "2",
+        "type": "string",
+        "variableId": "required_approval",
+        "entries": [
+          "line_managers",
+          "risk_managers",
+          "solvency_check"
+        ],
+        "label": "Required approval"
+      }
+    ],
+    "rules": [
+      {
+        "2": "solvency_check",
+        "1_operator": "==",
+        "1_expression": "ca_loan_contract",
+        "1_expressionLanguage": "",
+        "input_1721205804921_operator": "-- NA --",
+        "input_1721205804921_expression": "-",
+        "input_1721205866854_operator": "-- NA --",
+        "input_1721205866854_expression": "-",
+        "input_1721205866854_expressionLanguage": "",
+        "input_1721205804921_operator_expressionLanguage": "",
+        "input_1721205804921_expressionLanguage": "",
+        "input_1721205866854_operator_expressionLanguage": "",
+        "2_expressionLanguage": ""
+      },
+      {
+        "2": "line_managers",
+        "input_1721205866854_expression": "-",
+        "input_1721205866854_operator": "-- NA --",
+        "input_1721205804921_expression": "1000",
+        "input_1721205804921_operator": ">",
+        "1_expression": "ca_contract",
+        "1_operator": "==",
+        "1_operator_expressionLanguage": "",
+        "1_expressionLanguage": "",
+        "input_1721205804921_operator_expressionLanguage": "",
+        "input_1721205804921_expressionLanguage": "",
+        "input_1721205866854_operator_expressionLanguage": "",
+        "input_1721205866854_expressionLanguage": "",
+        "2_expressionLanguage": ""
+      },
+      {
+        "2": "line_managers",
+        "input_1721205866854_expression": "-",
+        "input_1721205866854_operator": "-- NA --",
+        "input_1721205804921_expression": "5000",
+        "input_1721205804921_operator": ">",
+        "1_expression": "ca_loan_contract",
+        "1_operator": "==",
+        "1_operator_expressionLanguage": "",
+        "1_expressionLanguage": "",
+        "input_1721205804921_operator_expressionLanguage": "",
+        "input_1721205804921_expressionLanguage": "",
+        "input_1721205866854_operator_expressionLanguage": "",
+        "input_1721205866854_expressionLanguage": "",
+        "2_expressionLanguage": ""
+      },
+      {
+        "2": "risk_managers",
+        "input_1721205866854_expression": "3",
+        "input_1721205866854_operator": ">",
+        "input_1721205804921_expression": "-",
+        "input_1721205804921_operator": "-- NA --",
+        "1_expression": "-",
+        "1_operator": "-- NA --",
+        "1_operator_expressionLanguage": "",
+        "1_expressionLanguage": "",
+        "input_1721205804921_operator_expressionLanguage": "",
+        "input_1721205804921_expressionLanguage": "",
+        "input_1721205866854_operator_expressionLanguage": "",
+        "input_1721205866854_expressionLanguage": "",
+        "2_expressionLanguage": ""
+      }
+    ]
+  },
+  "serviceName": "decision"
+}

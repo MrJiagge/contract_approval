@@ -1,0 +1,79 @@
+{
+  "id": "50ff1ed9-ff2d-408a-9cac-5767351553fa",
+  "schemaId": "https://www.opentext.com/ocp/devx/security/1.0.0/ACL",
+  "data": {
+    "name": "pending_approval",
+    "permits": [
+      {
+        "identity_alias": "owner",
+        "permission_level": "Custom",
+        "permissions": [
+          "read_content",
+          "modify",
+          "edit_permissions",
+          "browse",
+          "attributes"
+        ],
+        "ot2mc-row-id": "b16addae-5969-4661-bdf1-ec1a9c3f093d"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Read",
+        "group_id": "1034c674-ac60-439d-80ac-a837f0b9ac43",
+        "permissions": [
+          "browse",
+          "read_content"
+        ],
+        "ot2mc-row-id": "0d3c7391-6010-40e5-80a0-87491796965b"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Custom",
+        "group_id": "a48dcff8-c5ce-477c-9e39-d3a81eff1215",
+        "permissions": [
+          "read_content",
+          "modify",
+          "edit_permissions",
+          "browse",
+          "attributes"
+        ],
+        "ot2mc-row-id": "84834983-aab7-4e43-8622-05891dad18c9"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Custom",
+        "group_id": "5b51c253-2bc2-4142-a239-9e2170baeace",
+        "permissions": [
+          "read_content",
+          "modify",
+          "edit_permissions",
+          "browse",
+          "attributes"
+        ],
+        "ot2mc-row-id": "e028e0f6-8c1f-4eea-90cf-3030b288c447"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Full control",
+        "group_id": "a1701005-82e9-4e5b-abf9-9afe20bdeeb3",
+        "permissions": [
+          "browse",
+          "read_content",
+          "modify",
+          "attributes",
+          "relate",
+          "lock",
+          "create_version",
+          "add_move_items",
+          "change_location",
+          "delete_content",
+          "edit_permissions",
+          "change_owner"
+        ],
+        "ot2mc-row-id": "a10235b9-fd53-42d7-b4c7-d1e189cef5a0"
+      }
+    ],
+    "description": "ACL for objects that are in \"Pending Approval\" state"
+  },
+  "serviceName": "security"
+}

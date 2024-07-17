@@ -1,0 +1,14 @@
+{
+  "projectName": "contract_approval",
+  "application": {
+    "id": "b55b338c-5edb-4f1a-8bd1-7b3494c94616",
+    "name": "contract_approval",
+    "displayName": "Contract Approval",
+    "description": "Contract Approval Application built on top of the OpenText Cloud Platform",
+    "version": "1.0",
+    "vendor": "Brandon_opentext"
+  },
+  "modelFolders": [
+    "./otresources"
+  ]
+}

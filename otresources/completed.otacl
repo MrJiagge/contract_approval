@@ -1,0 +1,50 @@
+{
+  "id": "c2d222e0-d741-4e69-a214-222958ebcf24",
+  "schemaId": "https://www.opentext.com/ocp/devx/security/1.0.0/ACL",
+  "data": {
+    "name": "completed",
+    "permits": [
+      {
+        "identity_alias": "owner",
+        "permission_level": "Read",
+        "permissions": [
+          "browse",
+          "read_content"
+        ],
+        "ot2mc-row-id": "4a30c39e-17a0-4a92-ad95-47993da6e62a"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Read",
+        "group_id": "1034c674-ac60-439d-80ac-a837f0b9ac43",
+        "permissions": [
+          "browse",
+          "read_content"
+        ],
+        "ot2mc-row-id": "dd0c1b39-fc59-47ed-b9b5-71f763f1d7ea"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Full control",
+        "group_id": "a1701005-82e9-4e5b-abf9-9afe20bdeeb3",
+        "permissions": [
+          "browse",
+          "read_content",
+          "modify",
+          "attributes",
+          "relate",
+          "lock",
+          "create_version",
+          "add_move_items",
+          "change_location",
+          "delete_content",
+          "edit_permissions",
+          "change_owner"
+        ],
+        "ot2mc-row-id": "21961b47-012e-4058-8337-878640cb35e3"
+      }
+    ],
+    "description": "ACL for objects that are completed/finished (i.e., in \"Approved\", \"Rejected\" or \"Expired\" state)\n"
+  },
+  "serviceName": "security"
+}

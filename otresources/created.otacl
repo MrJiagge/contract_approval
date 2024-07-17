@@ -1,0 +1,60 @@
+{
+  "id": "5d6e3ccb-300e-4ee9-900f-8b46d773ec35",
+  "schemaId": "https://www.opentext.com/ocp/devx/security/1.0.0/ACL",
+  "data": {
+    "name": "created",
+    "permits": [
+      {
+        "identity_alias": "owner",
+        "permission_level": "Full control",
+        "permissions": [
+          "browse",
+          "read_content",
+          "modify",
+          "attributes",
+          "relate",
+          "lock",
+          "create_version",
+          "add_move_items",
+          "change_location",
+          "delete_content",
+          "edit_permissions",
+          "change_owner"
+        ],
+        "ot2mc-row-id": "624f6672-977e-4c9f-9528-2fa08b06d091"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Read",
+        "group_id": "1034c674-ac60-439d-80ac-a837f0b9ac43",
+        "permissions": [
+          "browse",
+          "read_content"
+        ],
+        "ot2mc-row-id": "a2893155-5699-45cb-ab2d-4f2508a43601"
+      },
+      {
+        "identity_alias": "group",
+        "permission_level": "Full control",
+        "group_id": "a1701005-82e9-4e5b-abf9-9afe20bdeeb3",
+        "permissions": [
+          "browse",
+          "read_content",
+          "modify",
+          "attributes",
+          "relate",
+          "lock",
+          "create_version",
+          "add_move_items",
+          "change_location",
+          "delete_content",
+          "edit_permissions",
+          "change_owner"
+        ],
+        "ot2mc-row-id": "704e9f19-dd35-4235-bfcc-26b9a883ce2c"
+      }
+    ],
+    "description": "ACL for objects that are in \"Created\" state"
+  },
+  "serviceName": "security"
+}

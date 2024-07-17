@@ -1,0 +1,11 @@
+{
+  "id": "077d340a-f0f9-4496-a3dd-677ff967693b",
+  "schemaId": "https://www.opentext.com/ocp/devx/common/1.0.0/Namespace",
+  "data": {
+    "display_name": "Contract Approval",
+    "prefix": "ca",
+    "name": "contract_approval",
+    "description": "Contract Approval Namespace"
+  },
+  "serviceName": "common"
+}

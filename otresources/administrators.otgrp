@@ -1,0 +1,10 @@
+{
+  "id": "a1701005-82e9-4e5b-abf9-9afe20bdeeb3",
+  "schemaId": "https://www.opentext.com/ocp/devx/security/1.0.0/Group",
+  "data": {
+    "group_name": "administrators",
+    "description": "Group containing the administrators for the Contract Aproval application",
+    "nested_groups": []
+  },
+  "serviceName": "security"
+}
