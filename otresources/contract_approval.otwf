@@ -1,0 +1,346 @@
+{
+  "id": "df2edd59-a505-40ee-aa63-72d6ac72045b",
+  "schemaId": "https://www.opentext.com/ocp/devx/workflow/1.0.0/Flow",
+  "data": {
+    "modelId": 1,
+    "bounds": {
+      "lowerRight": {
+        "x": 1600,
+        "y": 1050
+      },
+      "upperLeft": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "properties": {
+      "generalgroupheader": "",
+      "process_id": "contract_approval",
+      "name": "Contract Approval",
+      "detailsgroupheader": "",
+      "process_version": "",
+      "process_namespace": "077d340a-f0f9-4496-a3dd-677ff967693b",
+      "process_historylevel": "audit",
+      "dataproperties": "",
+      "process_potentialstarteruser": "",
+      "process_potentialstartergroup": "",
+      "signaldefinitions": "",
+      "messagedefinitions": "",
+      "escalationdefinitions": "",
+      "duedatedefinition": "",
+      "executiongroupheader": "",
+      "isasynchistoryenable": true,
+      "isexecutable": true,
+      "eventlisteners": "",
+      "executionlisteners": "",
+      "documentation": "My Process"
+    },
+    "childShapes": [
+      {
+        "resourceId": "startEvent1",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "Start",
+          "detailsgroupheader": "",
+          "initiator": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "StartNoneEvent"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-6D5B277F-A879-47AA-A400-F57AF9048BCB"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 360,
+            "y": 193
+          },
+          "upperLeft": {
+            "x": 330,
+            "y": 163
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-35AC7103-59EE-44DD-B389-0229FC836090",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "Get contract from CMS",
+          "detailsgroupheader": "",
+          "authenticationdetails": {
+            "useCurrentAuthToken": true
+          },
+          "httptaskrequestmethod": "GET",
+          "httptaskrequesturl": "${base_url}/cms/instances/file/ca_contract/${contract_id}",
+          "httptaskrequestheaders": "Content-Type: application/json",
+          "httptaskrequestbody": "",
+          "httptaskrequestbodyencoding": "",
+          "httptaskrequesttimeout": "",
+          "httptaskdisallowredirects": "",
+          "httptaskfailstatuscodes": "",
+          "httptaskhandlestatuscodes": "",
+          "httptaskignoreexception": "",
+          "httptaskresponsevariablename": "contract",
+          "httptasksaverequestvariables": "",
+          "httptasksaveresponseparameters": "",
+          "httptaskresultvariableprefix": "",
+          "httptasksaveresponseparameterstransient": "",
+          "httptasksaveresponseasjson": true,
+          "executiongroupheader": "",
+          "asynchronousdefinition": "false",
+          "isforcompensation": "false",
+          "exclusivedefinition": "false",
+          "skipexpression": "",
+          "executionlisteners": "",
+          "multiinstancegroupheader": "",
+          "multiinstance_type": "None",
+          "multiinstance_cardinality": "",
+          "multiinstance_collection": "",
+          "multiinstance_variable": "",
+          "multiinstance_condition": ""
+        },
+        "stencil": {
+          "id": "HttpTask"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-8D0F07FF-09A4-4B6D-9B4A-F1FBD8CD8133"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 519.9999874830248,
+            "y": 218.99999526143083
+          },
+          "upperLeft": {
+            "x": 419.9999874830249,
+            "y": 138.99999526143083
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-6D5B277F-A879-47AA-A400-F57AF9048BCB",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-35AC7103-59EE-44DD-B389-0229FC836090"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 419.19533696842433,
+            "y": 178.5935599425461
+          },
+          "upperLeft": {
+            "x": 360.6484040349997,
+            "y": 178.1251866516073
+          }
+        },
+        "dockers": [
+          {
+            "x": 15,
+            "y": 15
+          },
+          {
+            "x": 49.99999999999997,
+            "y": 40
+          }
+        ],
+        "target": {
+          "resourceId": "sid-35AC7103-59EE-44DD-B389-0229FC836090"
+        }
+      },
+      {
+        "resourceId": "sid-BD74C92F-2DBA-4496-9FF6-94B922A8CADC",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "Get required approvals",
+          "detailsgroupheader": "",
+          "authenticationdetails": {
+            "useCurrentAuthToken": true
+          },
+          "httptaskrequestmethod": "POST",
+          "httptaskrequesturl": "${base_url}/decision/v1/execute",
+          "httptaskrequestheaders": "Content-Type: application/json",
+          "httptaskrequestbody": "{\n \"decisionKey\": \"required_approvals\",\n \"inputVariables\": [\n {\n \"name\": \"contract_type\",\n \"value\": \"${contract.type}\",\n \"type\": \"string\"\n },\n {\n \"name\": \"contract_value\",\n \"value\": ${contract.properties.value},\n \"type\": \"integer\"\n },\n {\n \"name\": \"risk_level\",\n \"value\": ${contract.properties.risk_classification},\n \"type\": \"integer\"\n }\n ]\n}",
+          "httptaskrequestbodyencoding": "",
+          "httptaskrequesttimeout": "",
+          "httptaskdisallowredirects": "",
+          "httptaskfailstatuscodes": "",
+          "httptaskhandlestatuscodes": "",
+          "httptaskignoreexception": "",
+          "httptaskresponsevariablename": "required_approval",
+          "httptasksaverequestvariables": "",
+          "httptasksaveresponseparameters": "",
+          "httptaskresultvariableprefix": "",
+          "httptasksaveresponseparameterstransient": "",
+          "httptasksaveresponseasjson": "true",
+          "executiongroupheader": "",
+          "asynchronousdefinition": "false",
+          "isforcompensation": "false",
+          "exclusivedefinition": "false",
+          "skipexpression": "",
+          "executionlisteners": {
+            "executionListeners": [
+              {
+                "event": "end",
+                "implementation": "",
+                "className": "org.workflow.scripting.secure.listener.WorkflowSecureJavascriptExecutionListener",
+                "expression": "",
+                "delegateExpression": "",
+                "isMailNotification": false,
+                "isExecuteScriptEnabled": true,
+                "scriptInfo": {
+                  "scriptType": "javascript",
+                  "script": "let solvencyCheckRequired = false;\nlet lineManagerApprovalRequired = false;\nlet riskManagerApprovalRequired = false;\nconst resultVariables = JSON.parse(\n execution.getVariable(\"required_approvals\")\n).resultVariables;\nresultVariables.forEach((approval) => {\n switch(approval[0].value) {\n case \"solvency_check\":\n solvencyCheckRequired = true;\n break;\n case \"line_managers\":\n lineManagerApprovalRequired = true;\n break;\n case \"risk_managers\": \n riskManagerApprovalRequired = true;\n break;\n }\n});\nexecution.setVariable(\"solvency_check_required\", \nsolvencyCheckRequired);\nexecution.setVariable(\"line_manager_approval_required\", \nlineManagerApprovalRequired);\nexecution.setVariable(\"risk_manager_approval_required\", \nriskManagerApprovalRequired);"
+                },
+                "mailInfo": {
+                  "mailtaskheaders": "",
+                  "mailtaskto": "",
+                  "mailtaskfrom": "",
+                  "mailtaskcc": "",
+                  "mailtaskbcc": "",
+                  "mailtasksubject": "",
+                  "mailtasktext": "",
+                  "mailtasktextvar": "",
+                  "mailtaskhtml": "",
+                  "mailtaskhtmlvar": "",
+                  "mailtaskcharset": ""
+                },
+                "publishToEventService": false,
+                "additionalTracing": false,
+                "eventTypeId": "",
+                "eventInfo": {
+                  "eventData": ""
+                },
+                "tracingInfo": {
+                  "tracingData": ""
+                },
+                "fields": [
+                  {
+                    "name": "language",
+                    "implementation": "javascript",
+                    "stringValue": "javascript",
+                    "expression": "",
+                    "string": ""
+                  },
+                  {
+                    "name": "script",
+                    "implementation": "let solvencyCheckRequired = false;\nlet lineManagerApprovalRequired = false;\nlet riskManagerApprovalRequired = false;\nconst resultVariables = JSON.parse(\n execution.getVariable(\"required_approvals\")\n).resultVariables;\nresultVariables.forEach((approval) => {\n switch(approval[0].value) {\n case \"solvency_check\":\n solvencyCheckRequired = true;\n break;\n case \"line_managers\":\n lineManagerApprovalRequired = true;\n break;\n case \"risk_managers\": \n riskManagerApprovalRequired = true;\n break;\n }\n});\nexecution.setVariable(\"solvency_check_required\", \nsolvencyCheckRequired);\nexecution.setVariable(\"line_manager_approval_required\", \nlineManagerApprovalRequired);\nexecution.setVariable(\"risk_manager_approval_required\", \nriskManagerApprovalRequired);",
+                    "stringValue": "let solvencyCheckRequired = false;\nlet lineManagerApprovalRequired = false;\nlet riskManagerApprovalRequired = false;\nconst resultVariables = JSON.parse(\n execution.getVariable(\"required_approvals\")\n).resultVariables;\nresultVariables.forEach((approval) => {\n switch(approval[0].value) {\n case \"solvency_check\":\n solvencyCheckRequired = true;\n break;\n case \"line_managers\":\n lineManagerApprovalRequired = true;\n break;\n case \"risk_managers\": \n riskManagerApprovalRequired = true;\n break;\n }\n});\nexecution.setVariable(\"solvency_check_required\", \nsolvencyCheckRequired);\nexecution.setVariable(\"line_manager_approval_required\", \nlineManagerApprovalRequired);\nexecution.setVariable(\"risk_manager_approval_required\", \nriskManagerApprovalRequired);",
+                    "expression": "",
+                    "string": ""
+                  }
+                ],
+                "$$hashKey": "uiGrid-000B"
+              }
+            ]
+          },
+          "multiinstancegroupheader": "",
+          "multiinstance_type": "None",
+          "multiinstance_cardinality": "",
+          "multiinstance_collection": "",
+          "multiinstance_variable": "",
+          "multiinstance_condition": ""
+        },
+        "stencil": {
+          "id": "HttpTask"
+        },
+        "childShapes": [],
+        "outgoing": [],
+        "bounds": {
+          "lowerRight": {
+            "x": 675.1624967878685,
+            "y": 218.99999733269217
+          },
+          "upperLeft": {
+            "x": 575.1624967878685,
+            "y": 138.99999733269217
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-8D0F07FF-09A4-4B6D-9B4A-F1FBD8CD8133",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-BD74C92F-2DBA-4496-9FF6-94B922A8CADC"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 574.4620055261607,
+            "y": 178.9999966558923
+          },
+          "upperLeft": {
+            "x": 520.7004787447327,
+            "y": 178.9999959382307
+          }
+        },
+        "dockers": [
+          {
+            "x": 49.99999999999997,
+            "y": 40
+          },
+          {
+            "x": 50,
+            "y": 40
+          }
+        ],
+        "target": {
+          "resourceId": "sid-BD74C92F-2DBA-4496-9FF6-94B922A8CADC"
+        }
+      }
+    ],
+    "stencil": {
+      "id": "BPMNDiagram"
+    },
+    "stencilset": {
+      "namespace": "http://b3mn.org/stencilset/bpmn2.0#",
+      "url": "../editor/stencilsets/bpmn2.0/bpmn2.0.json"
+    }
+  },
+  "serviceName": "workflow"
+}
