@@ -698,7 +698,12 @@
           "name": "",
           "detailsgroupheader": "",
           "mandatoryinfo": "",
-          "conditionsequenceflow": "",
+          "conditionsequenceflow": {
+            "expression": {
+              "type": "static",
+              "staticValue": "${solvency_check_required}"
+            }
+          },
           "defaultflow": "false",
           "skipexpression": "",
           "executiongroupheader": "",
@@ -716,11 +721,11 @@
         "bounds": {
           "lowerRight": {
             "x": 1100.4999982833879,
-            "y": 318.7999982872018
+            "y": 278.33280489551805
           },
           "upperLeft": {
-            "x": 625.2656240828345,
-            "y": 202.49530542271205
+            "x": 574.9999991655358,
+            "y": 202.58717778621212
           }
         },
         "dockers": [
@@ -730,7 +735,11 @@
           },
           {
             "x": 1100.4999982833879,
-            "y": 318.7999982872018
+            "y": 241.07998668511698
+          },
+          {
+            "x": 574.9999991655358,
+            "y": 241.07998668511698
           },
           {
             "x": 50,
