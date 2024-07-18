@@ -200,7 +200,7 @@
           "httptasksaveresponseparameters": "",
           "httptaskresultvariableprefix": "",
           "httptasksaveresponseparameterstransient": "",
-          "httptasksaveresponseasjson": "true",
+          "httptasksaveresponseasjson": true,
           "executiongroupheader": "",
           "asynchronousdefinition": "false",
           "isforcompensation": "false",
@@ -273,7 +273,11 @@
           "id": "HttpTask"
         },
         "childShapes": [],
-        "outgoing": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-EDAF3D37-CA70-4000-9534-54C47DF11441"
+          }
+        ],
         "bounds": {
           "lowerRight": {
             "x": 675.1624967878685,
@@ -331,6 +335,216 @@
         ],
         "target": {
           "resourceId": "sid-BD74C92F-2DBA-4496-9FF6-94B922A8CADC"
+        }
+      },
+      {
+        "resourceId": "sid-6A2FDEA1-0FE8-40F4-BE11-219B151C5BC4",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "Set contraact status to PENDING APPROVAL",
+          "detailsgroupheader": "",
+          "authenticationdetails": {
+            "useCurrentAuthToken": true
+          },
+          "httptaskrequestmethod": "PATCH",
+          "httptaskrequesturl": "${base_url}/cms/instances/file/ca_contract/${contract_id}",
+          "httptaskrequestheaders": "Content-Type: application/json",
+          "httptaskrequestbody": "{\n \"properties\": {\n \"status\": \"PENDING APPROVAL\"\n }\n}",
+          "httptaskrequestbodyencoding": "",
+          "httptaskrequesttimeout": "",
+          "httptaskdisallowredirects": "",
+          "httptaskfailstatuscodes": "",
+          "httptaskhandlestatuscodes": "",
+          "httptaskignoreexception": "",
+          "httptaskresponsevariablename": "contract",
+          "httptasksaverequestvariables": "",
+          "httptasksaveresponseparameters": "",
+          "httptaskresultvariableprefix": "",
+          "httptasksaveresponseparameterstransient": "",
+          "httptasksaveresponseasjson": true,
+          "executiongroupheader": "",
+          "asynchronousdefinition": "false",
+          "isforcompensation": "false",
+          "exclusivedefinition": "false",
+          "skipexpression": "",
+          "executionlisteners": "",
+          "multiinstancegroupheader": "",
+          "multiinstance_type": "None",
+          "multiinstance_cardinality": "",
+          "multiinstance_collection": "",
+          "multiinstance_variable": "",
+          "multiinstance_condition": ""
+        },
+        "stencil": {
+          "id": "HttpTask"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-B96A783F-4D32-4DF5-8994-E9BD1E84A4CB"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 834.9999780952935,
+            "y": 221.79999018907588
+          },
+          "upperLeft": {
+            "x": 734.9999780952935,
+            "y": 141.79999018907588
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-EDAF3D37-CA70-4000-9534-54C47DF11441",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-6A2FDEA1-0FE8-40F4-BE11-219B151C5BC4"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 734.050918587181,
+            "y": 180.90747735982401
+          },
+          "upperLeft": {
+            "x": 676.1115562959809,
+            "y": 179.89251016194405
+          }
+        },
+        "dockers": [
+          {
+            "x": 50,
+            "y": 40
+          },
+          {
+            "x": 50,
+            "y": 40
+          }
+        ],
+        "target": {
+          "resourceId": "sid-6A2FDEA1-0FE8-40F4-BE11-219B151C5BC4"
+        }
+      },
+      {
+        "resourceId": "sid-3CB6FFE9-C10D-415B-88EE-880D06DD5EBE",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "Set ACL to pending_approval",
+          "detailsgroupheader": "",
+          "authenticationdetails": {
+            "useCurrentAuthToken": true
+          },
+          "httptaskrequestmethod": "PUT",
+          "httptaskrequesturl": "${base_url}/cms/instances/file/ca_contract/${contract_id}/acl",
+          "httptaskrequestheaders": "Content-Type: application/json",
+          "httptaskrequestbody": "{\n \"id\": \"${pending_approval_acl_id}\"\n}",
+          "httptaskrequestbodyencoding": "",
+          "httptaskrequesttimeout": "",
+          "httptaskdisallowredirects": "",
+          "httptaskfailstatuscodes": "",
+          "httptaskhandlestatuscodes": "",
+          "httptaskignoreexception": "",
+          "httptaskresponsevariablename": "",
+          "httptasksaverequestvariables": "",
+          "httptasksaveresponseparameters": "",
+          "httptaskresultvariableprefix": "",
+          "httptasksaveresponseparameterstransient": "",
+          "httptasksaveresponseasjson": true,
+          "executiongroupheader": "",
+          "asynchronousdefinition": "false",
+          "isforcompensation": "false",
+          "exclusivedefinition": "false",
+          "skipexpression": "",
+          "executionlisteners": "",
+          "multiinstancegroupheader": "",
+          "multiinstance_type": "None",
+          "multiinstance_cardinality": "",
+          "multiinstance_collection": "",
+          "multiinstance_variable": "",
+          "multiinstance_condition": ""
+        },
+        "stencil": {
+          "id": "HttpTask"
+        },
+        "childShapes": [],
+        "outgoing": [],
+        "bounds": {
+          "lowerRight": {
+            "x": 1001.99996033311,
+            "y": 221.79999230951097
+          },
+          "upperLeft": {
+            "x": 874.9999607205402,
+            "y": 141.7999922946098
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-B96A783F-4D32-4DF5-8994-E9BD1E84A4CB",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-3CB6FFE9-C10D-415B-88EE-880D06DD5EBE"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 874.5409833576423,
+            "y": 181.79999142164124
+          },
+          "upperLeft": {
+            "x": 835.1679412178935,
+            "y": 181.79999087965663
+          }
+        },
+        "dockers": [
+          {
+            "x": 50,
+            "y": 40
+          },
+          {
+            "x": 63.499999806284904,
+            "y": 40.00000000745058
+          }
+        ],
+        "target": {
+          "resourceId": "sid-3CB6FFE9-C10D-415B-88EE-880D06DD5EBE"
         }
       }
     ],
