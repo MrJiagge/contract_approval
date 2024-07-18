@@ -487,7 +487,11 @@
           "id": "HttpTask"
         },
         "childShapes": [],
-        "outgoing": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-ACA0551B-CFF5-45E2-85D8-271DBA598FBE"
+          }
+        ],
         "bounds": {
           "lowerRight": {
             "x": 1001.99996033311,
@@ -545,6 +549,196 @@
         ],
         "target": {
           "resourceId": "sid-3CB6FFE9-C10D-415B-88EE-880D06DD5EBE"
+        }
+      },
+      {
+        "resourceId": "sid-BEDA372A-5DF3-4053-8730-732152513380",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "sequencefloworder": "",
+          "executiongroupheader": "",
+          "asynchronousdefinition": "false",
+          "exclusivedefinition": "false"
+        },
+        "stencil": {
+          "id": "ParallelGateway"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-D591EEC7-850F-4545-8877-A1B91685BA50"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 1119.9999982833879,
+            "y": 201.79999204488647
+          },
+          "upperLeft": {
+            "x": 1079.9999982833879,
+            "y": 161.79999204488647
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-ACA0551B-CFF5-45E2-85D8-271DBA598FBE",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-BEDA372A-5DF3-4053-8730-732152513380"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 1080.0742126087907,
+            "y": 181.7999922000094
+          },
+          "upperLeft": {
+            "x": 1002.5859127754825,
+            "y": 181.79999207661643
+          }
+        },
+        "dockers": [
+          {
+            "x": 63.499999806284904,
+            "y": 40.00000000745059
+          },
+          {
+            "x": 20,
+            "y": 20
+          }
+        ],
+        "target": {
+          "resourceId": "sid-BEDA372A-5DF3-4053-8730-732152513380"
+        }
+      },
+      {
+        "resourceId": "sid-688DD0D8-D8BB-412B-81F7-1936F52F693E",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "Check Solvency",
+          "detailsgroupheader": "",
+          "callactivitycompleteasync": "",
+          "callactivitycalledelement": "solvency_check",
+          "callactivitycalledelementtype": "key",
+          "callactivityinparameters": "",
+          "callactivityoutparameters": {
+            "outParameters": [
+              {
+                "source": "solvent",
+                "sourceExpression": "",
+                "target": "solvent",
+                "targetExpression": "",
+                "$$hashKey": "uiGrid-000V"
+              }
+            ]
+          },
+          "callactivityinheritvariables": true,
+          "callactivitysamedeployment": "false",
+          "callactivityfallbacktodefaulttenant": "false",
+          "callactivityidvariablename": "",
+          "callactivityprocessinstancename": "",
+          "callactivityinheritbusinesskey": "false",
+          "callactivitybusinesskey": "",
+          "callactivityuselocalscopeforoutparameters": "false",
+          "executiongroupheader": "",
+          "asynchronousdefinition": "false",
+          "isforcompensation": "false",
+          "exclusivedefinition": "false",
+          "executionlisteners": "",
+          "multiinstancegroupheader": "",
+          "multiinstance_type": "None",
+          "multiinstance_cardinality": "",
+          "multiinstance_collection": "",
+          "multiinstance_variable": "",
+          "multiinstance_condition": ""
+        },
+        "stencil": {
+          "id": "CallActivity"
+        },
+        "childShapes": [],
+        "outgoing": [],
+        "bounds": {
+          "lowerRight": {
+            "x": 624.9999991655358,
+            "y": 358.7999982872018
+          },
+          "upperLeft": {
+            "x": 524.9999991655358,
+            "y": 278.7999982872018
+          }
+        },
+        "dockers": []
+      },
+      {
+        "resourceId": "sid-D591EEC7-850F-4545-8877-A1B91685BA50",
+        "properties": {
+          "generalgroupheader": "",
+          "overrideid": "",
+          "name": "",
+          "detailsgroupheader": "",
+          "mandatoryinfo": "",
+          "conditionsequenceflow": "",
+          "defaultflow": "false",
+          "skipexpression": "",
+          "executiongroupheader": "",
+          "executionlisteners": ""
+        },
+        "stencil": {
+          "id": "SequenceFlow"
+        },
+        "childShapes": [],
+        "outgoing": [
+          {
+            "resourceId": "sid-688DD0D8-D8BB-412B-81F7-1936F52F693E"
+          }
+        ],
+        "bounds": {
+          "lowerRight": {
+            "x": 1100.4999982833879,
+            "y": 318.7999982872018
+          },
+          "upperLeft": {
+            "x": 625.2656240828345,
+            "y": 202.49530542271205
+          }
+        },
+        "dockers": [
+          {
+            "x": 20.5,
+            "y": 20.5
+          },
+          {
+            "x": 1100.4999982833879,
+            "y": 318.7999982872018
+          },
+          {
+            "x": 50,
+            "y": 40
+          }
+        ],
+        "target": {
+          "resourceId": "sid-688DD0D8-D8BB-412B-81F7-1936F52F693E"
         }
       }
     ],
